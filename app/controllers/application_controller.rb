@@ -6,7 +6,13 @@ class ApplicationController < ActionController::Base
   rescue_from ActiveRecord::RecordNotFound, with: :render_404
   rescue_from ActiveSupport::MessageVerifier::InvalidSignature, with: :render_error
 
+  # before_action :set_a_flash_message
+
   private
+  # def set_a_flash_message
+  #   flash.now[:success] = "This is a great success!"
+  # end
+
   def go_back_link_to(path)
     @go_back_link_to ||= path
     @go_back_link_to
